@@ -1,7 +1,7 @@
 // ホームのtemplatesを作成
 import React from 'react';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
-import { PopulationType } from '../../interface/population';
+import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
 import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
@@ -17,6 +17,8 @@ interface HomeTemplateProps {
   prefectures: PrefectureType[];
   population: PopulationType[];
   handleSelectedPrefectures: (prefecture: PrefectureType) => void;
+  mode: PopulationLabel;
+  handleChangeMode: (mode: PopulationLabel) => void;
 }
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
@@ -45,7 +47,7 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         {/* 表示モード選択 */}
         <section className="home-template-mode-section">
           <ModeSection />
-          <ModeButtons />
+          <ModeButtons onClick={props.handleChangeMode} />
         </section>
 
         {/* 都道府県チェックボックス */}
