@@ -20,7 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         type="checkbox"
         data-testid="checkbox-input"
         checked={checked}
-        onChange={(e) => {
+        onChange={() => {
           if (!disabled) {
             onChange();
           }
