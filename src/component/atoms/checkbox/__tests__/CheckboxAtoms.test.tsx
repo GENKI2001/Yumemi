@@ -45,6 +45,15 @@ describe('Checkbox', () => {
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
   });
 
+  it('calls onChange handler when label clicked', () => {
+    render(<Checkbox {...defaultProps} />);
+
+    const label = screen.getByTestId('checkbox-atoms-label');
+    fireEvent.click(label);
+
+    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('is disabled when disabled prop is true', () => {
     render(<Checkbox {...defaultProps} disabled={true} />);
 

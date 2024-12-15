@@ -18,6 +18,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     <div className="checkbox-container">
       <input
         type="checkbox"
+        id={'checkbox-' + label} // ユニークなIDを指定
         data-testid="checkbox-input"
         checked={checked}
         onChange={() => {
@@ -28,7 +29,15 @@ const Checkbox: React.FC<CheckboxProps> = ({
         disabled={disabled}
         className="checkbox-input"
       />
-      <label className="checkbox-label" data-testid="checkbox-atoms-label">
+      <label
+        onClick={() => {
+          if (!disabled) {
+            onChange();
+          }
+        }}
+        className="checkbox-label"
+        data-testid="checkbox-atoms-label"
+      >
         {label}
       </label>
     </div>
