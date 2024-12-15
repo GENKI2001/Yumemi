@@ -1,0 +1,36 @@
+/* 基本のスタイル */
+.round-white-button {
+  border: 1px solid lightgrey; /* ボーダーを薄いグレーに設定 */
+  border-radius: 50px; /* 丸みをつける */
+  font-size: 1rem; /* テキストサイズ */
+  cursor: pointer; /* 通常時のカーソルをポインターに */
+  transition: all 0.3s ease; /* スムーズなアニメーション */
+}
+
+/* 基本スタイル */
+.selected-white-button {
+  background-color: white; /* デフォルトの背景色 */
+  color: grey; /* テキストの色 */
+  border: 1px solid lightgrey; /* デフォルトのボーダー */
+  padding: 10px 20px; /* 内側の余白 */
+  border-radius: 5px; /* 角丸 */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: all 0.3s ease; /* スムーズなスタイル変更 */
+}
+
+/* 選択状態のスタイル */
+.selected-white-button.selected {
+  background-color: #f0f0f0; /* 選択時の背景色 */
+  color: grey; /* 選択時のテキスト色 */
+  border: 0.5px solid grey; /* 選択時のボーダー */
+  box-shadow: none; /* 選択時は影をなくす */
+}
+
+/* 無効状態のスタイル */
+.selected-white-button:disabled {
+  background-color: #f3f3f3; /* 無効時の背景色 */
+  color: #a9a9a9; /* 無効時のテキスト色 */
+  cursor: not-allowed; /* 無効時のカーソル */
+  border: 1px solid #e0e0e0; /* 無効時のボーダー */
+  box-shadow: none; /* 無効時は影をなくす */
+}
