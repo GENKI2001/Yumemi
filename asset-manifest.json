@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Yumemi/static/css/main.bd04401d.css",
+    "main.js": "/Yumemi/static/js/main.bfb22500.js",
+    "index.html": "/Yumemi/index.html",
+    "main.bd04401d.css.map": "/Yumemi/static/css/main.bd04401d.css.map",
+    "main.bfb22500.js.map": "/Yumemi/static/js/main.bfb22500.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd04401d.css",
+    "static/js/main.bfb22500.js"
+  ]
+}
