@@ -2,6 +2,7 @@
   "name": "platform",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://genki2001.github.io/Yumemi",
   "dependencies": {
     "@tanstack/query-sync-storage-persister": "^5.62.7",
     "@tanstack/react-query": "^5.62.7",
