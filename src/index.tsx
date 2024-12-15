@@ -29,7 +29,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.REACT_APP_BASE_URL}>
       <PersistQueryClientProvider
         client={queryClient}
         persistOptions={persistOptions}
