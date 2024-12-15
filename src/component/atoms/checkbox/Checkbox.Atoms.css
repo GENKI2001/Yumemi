@@ -1,0 +1,51 @@
+/* チェックボックス全体のレイアウト */
+.checkbox-container {
+  display: flex;
+  align-items: center; /* items-center */
+  gap: 0.5rem; /* gap-2 */
+}
+
+/* チェックボックスのスタイル */
+.checkbox-input {
+  width: 1rem; 
+  height: 1rem; 
+  background-color: #f3f4f6; 
+  border-color: #d1d5db; 
+  border-radius: 0.25rem; 
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* チェック状態でのスタイル */
+.checkbox-input:checked {
+  color: #383E86; 
+}
+
+/* focus状態でのスタイル */
+.checkbox-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5); /* focus:ring-blue-500 */
+}
+
+/* disabled状態でのスタイル */
+.checkbox-input:disabled {
+  cursor: not-allowed;
+  background-color: #e5e7eb; /* bg-gray-200 */
+  border-color: #d1d5db; /* border-gray-300 */
+}
+
+.checkbox-input:disabled:checked {
+  color: #9ca3af; /* text-gray-400 */
+}
+
+/* ラベルのスタイル */
+.checkbox-label {
+  font-size: 0.875rem; /* text-sm */
+  color: #374151; /* text-gray-700 */
+  user-select: none; /* select-none */
+  cursor: pointer;
+}
+
+.checkbox-label:disabled {
+  cursor: not-allowed;
+  color: #9ca3af; /* text-gray-400 */
+}
