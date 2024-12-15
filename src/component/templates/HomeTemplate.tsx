@@ -47,13 +47,7 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
   return (
     <div className="home-template">
       {/* ヘッダー部分 */}
-      <AppHeader
-        img_src={
-          (process.env.REACT_APP_BASE_URL
-            ? process.env.REACT_APP_BASE_URL + '/'
-            : '') + 'yumemi.png'
-        }
-      />
+      <AppHeader img_src={'yumemi.png'} />
 
       {/* コンテンツ部分 */}
       <div className="home-template-content">
