@@ -1,0 +1,48 @@
+/* 全体のスタイル */
+.home-template {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* メインコンテンツのスタイル */
+.home-template-content {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* 画面幅が1200px以下の場合、75%に変更 */
+@media (max-width: 1200px) {
+  .home-template-content {
+    width: 75%;
+  }
+}
+
+/* 画面幅が768px以下の場合、90%に変更 */
+@media (max-width: 768px) {
+  .home-template-content {
+    width: 90%;
+  }
+}
+
+/* 画面幅が480px以下の場合、スマホ用の96%に変更 */
+@media (max-width: 480px) {
+  .home-template-content {
+    width: 96%;
+  }
+}
+
+/* グラフセクションのスタイル */
+.home-template-chart-section {
+  width: auto;
+}
+
+/* セクション間の余白 */
+.home-template-section {
+  margin-bottom: 1.5rem;
+}
