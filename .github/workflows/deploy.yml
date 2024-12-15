@@ -34,7 +34,7 @@ jobs:
         REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
         REACT_APP_X_API_KEY: ${{ secrets.REACT_APP_X_API_KEY }}
         REACT_APP_BASE_URL: Yumemi
-      run: 
+      run: |
         echo "Deploying with API URL: $REACT_APP_API_URL"
         echo "Deploying with API Key: $REACT_APP_X_API_KEY"
         echo "Deploying with BASE URL: $REACT_APP_BASE_URL"
