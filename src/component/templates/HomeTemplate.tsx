@@ -16,6 +16,7 @@ interface HomeTemplateProps {
   selectedPrefectures: PrefectureType[];
   prefectures: PrefectureType[];
   population: PopulationType[];
+  handleSelectedPrefectures: (prefecture: PrefectureType) => void;
 }
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
@@ -54,8 +55,8 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
             columns={columns}
             selectedPrefectures={props.selectedPrefectures}
             prefectures={props.prefectures}
-            onChange={() => {
-              console.log('');
+            onChange={(prefecture: PrefectureType) => {
+              props.handleSelectedPrefectures(prefecture);
             }}
           />
         </section>
