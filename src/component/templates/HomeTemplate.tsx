@@ -1,5 +1,6 @@
 // ホームのtemplatesを作成
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
 import ModeButtons from '../organisms/button/ModeButtons';
@@ -18,31 +19,8 @@ interface HomeTemplateProps {
 }
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
-  // あとでロジックを切り分けます。今はここに書いています。
-  const [columns, setColumns] = useState<number>(6); // デフォルトで6カラム
-
-  // ウィンドウの幅に応じてカラム数を計算
-  const calculateColumns = (width: number): number => {
-    if (width > 1200) return 7;
-    if (width > 900) return 6;
-    if (width > 600) return 5;
-    if (width > 450) return 4;
-    return 3;
-  };
-
-  useEffect(() => {
-    // 初回のカラム数設定
-    setColumns(calculateColumns(window.innerWidth));
-
-    const handleResize = () => {
-      setColumns(calculateColumns(window.innerWidth));
-    };
-
-    window.addEventListener('resize', handleResize); // リサイズイベントを監視
-    return () => {
-      window.removeEventListener('resize', handleResize); // クリーンアップ
-    };
-  }, []);
+  // ウインドウサイズにより自動計算されたカラム数を取得
+  const columns = useResponsiveColumns(6);
 
   return (
     <div className="home-template">
