@@ -38,8 +38,8 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         {/* グラフチャート */}
         <section className="home-template-chart-section">
           <PopulationChart
-            title="都道府県別の総人口"
-            label={'年少人口'}
+            title={'都道府県別の' + props.mode}
+            label={props.mode}
             populationData={props.population ?? []}
           />
         </section>
@@ -47,7 +47,7 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         {/* 表示モード選択 */}
         <section className="home-template-mode-section">
           <ModeSection />
-          <ModeButtons onClick={props.handleChangeMode} />
+          <ModeButtons mode={props.mode} onClick={props.handleChangeMode} />
         </section>
 
         {/* 都道府県チェックボックス */}

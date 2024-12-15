@@ -7,6 +7,7 @@ import SelectedWhiteButton from '../../molecules/button/SelectedWhiteButton';
 import './Buttons.Organisms.css';
 
 interface ModeButtonsProps {
+  mode: PopulationLabel;
   onClick: (mode: PopulationLabel) => void;
 }
 
@@ -17,6 +18,7 @@ const ModeButtons: React.FC<ModeButtonsProps> = (props) => {
         <SelectedWhiteButton
           key={label}
           text={label}
+          isSelected={props.mode === label}
           onClick={() => props.onClick(label)}
         />
       ))}
