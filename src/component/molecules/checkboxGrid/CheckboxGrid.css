@@ -1,0 +1,34 @@
+/* グリッドコンテナのスタイル */
+.grid-container {
+  display: grid; /* グリッドレイアウトを有効化 */
+  gap: 1rem; /* グリッド項目間のスペース */
+}
+
+/* グリッドの列設定 (カスタマイズ可能な部分) */
+.grid-container.columns-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2列レイアウト */
+}
+
+.grid-container.columns-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3列レイアウト */
+}
+
+.grid-container.columns-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4列レイアウト */
+}
+
+.grid-container.columns-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 4列レイアウト */
+}
+
+.grid-container.columns-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr)); /* 4列レイアウト */
+}
+
+.grid-container.columns-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr)); /* 4列レイアウト */
+}
+
+.grid-container.columns-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr)); /* 4列レイアウト */
+}
