@@ -14,10 +14,6 @@ interface PopulationChartProps {
 }
 
 const PopulationChart: React.FC<PopulationChartProps> = (props) => {
-  // データがない場合はエラーメッセージを表示
-  if (!props.populationData?.[0]?.data?.[0]?.data) {
-    return <div>データがありません</div>;
-  }
   // ラベルに対応するカテゴリを取得。カテゴリは全てのデータで共通であることを前提としている。
   const categories = props.populationData?.[0]?.data
     ?.find((data: PopulationTitle) => data.label === props.label)
