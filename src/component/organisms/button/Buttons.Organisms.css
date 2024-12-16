@@ -2,4 +2,6 @@
 .buttons-container {
   display: flex; /* フレックスボックスを有効化 */
   gap: 10px; /* ボタン間のスペース */
+  flex-wrap: wrap; /* 必要に応じて折り返す */
+  gap: 0.5rem; /* ボタン間の隙間 */
 }
