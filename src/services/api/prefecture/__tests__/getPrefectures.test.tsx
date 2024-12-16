@@ -50,4 +50,22 @@ describe('getPrefectures', () => {
       { prefCode: 2, prefName: 'Aomori' },
     ]);
   });
+
+  // 無効なAPIキーを送信した場合
+  it('handles invalid API key error', async () => {
+    // モックサーバーで無効なAPIキーをシミュレート
+    server.use(
+      http.get(`${process.env.REACT_APP_API_URL}/api/v1/prefectures`, () => {
+        return HttpResponse.json(
+          { message: 'Invalid API Key' },
+          { status: 403 },
+        );
+      }),
+    );
+
+    // 無効なAPIキーエラーが発生することを確認
+    await expect(getPrefectures()).rejects.toThrow(
+      'Request failed with status code 403',
+    );
+  });
 });
