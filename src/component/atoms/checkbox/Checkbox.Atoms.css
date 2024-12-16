@@ -22,6 +22,7 @@
 .checkbox-input:checked {
   color: white;
   background: linear-gradient(to right, #89EAD8, #3A85DC);
+  border: 0.5px solid grey;
 }
 
 /* チェック状態のカスタムチェックマーク */
