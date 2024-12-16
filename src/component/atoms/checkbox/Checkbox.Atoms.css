@@ -7,17 +7,36 @@
 
 /* チェックボックスのスタイル */
 .checkbox-input {
+  appearance: none;
   width: 1rem; 
   height: 1rem; 
-  background-color: #f3f4f6; 
+  background-color: white; 
   border-color: #d1d5db; 
+  border: 1px solid grey;
   border-radius: 0.25rem; 
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  position: relative; /* チェックマークの中央配置用 */
 }
 
 /* チェック状態でのスタイル */
 .checkbox-input:checked {
-  color: #383E86; 
+  color: white;
+  background: linear-gradient(to right, #89EAD8, #3A85DC);
+}
+
+/* チェック状態のカスタムチェックマーク */
+.checkbox-input:checked::after {
+  content: '';
+  position: absolute; /* 中央配置を可能にする */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 中央に移動 */
+  display: block;
+  width: 0.6rem; /* チェックマークを大きく */
+  height: 0.6rem; /* チェックマークを大きく */
+  background-color: white; /* チェックマークの色 */
+  clip-path: polygon(15% 45%, 0% 65%, 50% 100%, 100% 0%, 85% 0%, 45% 75%);
+  /* clip-pathのサイズや形を微調整 */
 }
 
 /* focus状態でのスタイル */
