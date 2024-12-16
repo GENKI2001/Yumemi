@@ -20,7 +20,10 @@ const CheckboxGrid: React.FC<CheckboxGridProps> = ({
   columns = 3, // Default to 3 columns
 }) => {
   return (
-    <div className={`grid-container columns-${columns}`}>
+    <div
+      data-testid="checkbox-grid"
+      className={`grid-container columns-${columns}`}
+    >
       {options.map((option, index) => (
         <Checkbox
           key={index}

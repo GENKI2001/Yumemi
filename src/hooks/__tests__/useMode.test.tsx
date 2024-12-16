@@ -8,6 +8,12 @@ describe('useMode', () => {
   const mockLabel: PopulationLabel = '年少人口';
 
   it('should return an default value initially.', () => {
+    const { result } = renderHook(() => useMode());
+
+    expect(result.current.mode).toEqual(mockLabel);
+  });
+
+  it('should return value initially.', () => {
     const init: PopulationLabel = '生産年齢人口';
     const { result } = renderHook(() => useMode(init));
 
