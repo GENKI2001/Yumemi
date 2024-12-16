@@ -20,11 +20,12 @@
 
 /* 選択状態のスタイル */
 .selected-white-button.selected {
-  /* 右端の色は89EAD8左端は3A85DC */
   background: linear-gradient(to right, #89EAD8, #3A85DC);
+  border: 1px solid white; /* デフォルトのボーダー */
   color: white; /* 選択時のテキスト色 */
   box-shadow: none; /* 選択時は影をなくす */
   box-sizing: border-box; /* ボックスサイズをボーダー内側に */
+  transition: all 0.3s ease; /* スムーズなスタイル変更 */
 }
 
 /* 無効状態のスタイル */
