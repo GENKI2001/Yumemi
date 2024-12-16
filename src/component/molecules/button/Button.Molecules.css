@@ -12,7 +12,7 @@
   background-color: white; /* デフォルトの背景色 */
   color: grey; /* テキストの色 */
   border: 1px solid lightgrey; /* デフォルトのボーダー */
-  padding: 10px 20px; /* 内側の余白 */
+  padding: 10px 15px; /* 内側の余白 */
   border-radius: 5px; /* 角丸 */
   cursor: pointer; /* カーソルをポインターに */
   transition: all 0.3s ease; /* スムーズなスタイル変更 */
