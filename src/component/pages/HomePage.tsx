@@ -1,9 +1,9 @@
 // ホームのpagesを作成
 import React from 'react';
+import { useGetPrefectures } from '../../hooks/useGetPrefectures';
 import useMode from '../../hooks/useMode';
 import useSelectedPrefectures from '../../hooks/useSelectedPrefectures';
 import { useGetPopulation } from '../../services/api/population/useGetPopulation';
-import { useGetPrefectures } from '../../services/api/prefecture/getPrefectures';
 import HomeTemplate from '../templates/HomeTemplate';
 
 const HomePage: React.FC = () => {
