@@ -20,10 +20,12 @@
 
 /* 選択状態のスタイル */
 .selected-white-button.selected {
-  background-color: #f0f0f0; /* 選択時の背景色 */
-  color: grey; /* 選択時のテキスト色 */
-  border: 0.5px solid grey; /* 選択時のボーダー */
+  background: linear-gradient(to right, #89EAD8, #3A85DC);
+  border: 1px solid white; /* デフォルトのボーダー */
+  color: white; /* 選択時のテキスト色 */
   box-shadow: none; /* 選択時は影をなくす */
+  box-sizing: border-box; /* ボックスサイズをボーダー内側に */
+  transition: all 0.3s ease; /* スムーズなスタイル変更 */
 }
 
 /* 無効状態のスタイル */
