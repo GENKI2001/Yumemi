@@ -3,7 +3,7 @@ import React from 'react';
 import useMode from '../../hooks/useMode';
 import useSelectedPrefectures from '../../hooks/useSelectedPrefectures';
 import { useGetPopulation } from '../../services/api/population/useGetPopulation';
-import { useGetPrefectures } from '../../services/api/prefecture/useGetPrefecture';
+import { useGetPrefectures } from '../../services/api/prefecture/getPrefectures';
 import HomeTemplate from '../templates/HomeTemplate';
 
 const HomePage: React.FC = () => {
