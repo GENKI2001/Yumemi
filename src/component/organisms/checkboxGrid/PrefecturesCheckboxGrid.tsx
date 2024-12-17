@@ -2,10 +2,10 @@ import { PrefectureType } from '../../../interface/prefecture';
 import CheckboxGrid from '../../molecules/checkboxGrid/CheckboxGrid';
 
 interface PopulationChartProps {
-  columns: number; // カラム数
-  selectedPrefectures: PrefectureType[]; // 選択された都道府県
-  prefectures: PrefectureType[]; // 都道府県一覧
-  onChange: (prefecture: PrefectureType) => void; // 都道府県の選択状態変更イベント
+  columns: number;
+  selectedPrefectures: PrefectureType[];
+  prefectures: PrefectureType[];
+  onChange: (prefecture: PrefectureType) => void;
 }
 
 const PrefecturesCheckboxGrid: React.FC<PopulationChartProps> = (props) => {

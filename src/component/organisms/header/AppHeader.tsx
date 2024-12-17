@@ -4,7 +4,7 @@ import ImgLogo from '../../molecules/logo/ImgLogo';
 import './AppHeader.css';
 
 interface AppHeaderProps {
-  img_src: string; // ロゴ画像のソースを指定するプロパティ
+  img_src: string;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({ img_src }) => {

@@ -5,18 +5,16 @@ import { getCategoriesFromPopulation } from '../../../utils/getCategoriesFromPop
 import { getSeriesFromPopulation } from '../../../utils/getSeriesFromPopulation';
 
 interface PopulationChartProps {
-  title: string; // グラフのタイトル
-  label: PopulationLabel; // 抽出するデータのラベル
-  populationData: PopulationType[]; // 人口データ
+  title: string;
+  label: PopulationLabel;
+  populationData: PopulationType[];
 }
 
 const PopulationChart: React.FC<PopulationChartProps> = (props) => {
-  // カテゴリ（年度）を取得
   const categories = getCategoriesFromPopulation(
     props.populationData,
     props.label,
   );
-  // 系列データを取得
   const series = getSeriesFromPopulation(props.populationData, props.label);
 
   const options = {
