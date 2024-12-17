@@ -21,7 +21,7 @@ export const useGetPopulation = (
 ): QueryState<PopulationType[]> => {
   const queryClient = useQueryClient();
 
-  const prefectureQueries = useQueries({
+  const populationQueries = useQueries({
     queries: prefecures.map((pref: PrefectureType) => ({
       queryKey: ['prefecture', pref.prefCode],
       queryFn: () => getPopulation(pref.prefCode, pref.prefName),
@@ -36,15 +36,15 @@ export const useGetPopulation = (
   });
 
   // 全てのクエリの状態を集約
-  const isLoading = prefectureQueries.some((query) => query.isLoading);
-  const isError = prefectureQueries.some((query) => query.isError);
-  const error = prefectureQueries.find((query) => query.error)?.error ?? null;
+  const isLoading = populationQueries.some((query) => query.isLoading);
+  const isError = populationQueries.some((query) => query.isError);
+  const error = populationQueries.find((query) => query.error)?.error ?? null;
   const status = isLoading ? 'pending' : isError ? 'error' : 'success';
   // 型安全なフィルタリング処理
   const data =
     isLoading || isError
       ? undefined
-      : prefectureQueries
+      : populationQueries
           .map((query) => query.data)
           .filter((data): data is PopulationType => data !== undefined);
 
