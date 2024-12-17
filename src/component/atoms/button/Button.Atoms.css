@@ -1,4 +1,3 @@
-/* ボタンの基本スタイル */
 .button {
   background-color: white;
   color: grey;
@@ -9,7 +8,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* hover時のスタイル */
 .button:hover {
   background-color: snow;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);

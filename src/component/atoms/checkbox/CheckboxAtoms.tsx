@@ -2,10 +2,10 @@ import React from 'react';
 import './Checkbox.Atoms.css';
 
 interface CheckboxProps {
-  label: string; // チェックボックスのラベル
-  checked: boolean; // チェック状態
-  onChange: () => void; // 変更イベント
-  disabled?: boolean; // 無効化状態
+  label: string;
+  checked: boolean;
+  onChange: () => void;
+  disabled?: boolean;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -18,7 +18,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
     <div className="checkbox-container">
       <input
         type="checkbox"
-        id={'checkbox-' + label} // ユニークなIDを指定
         data-testid="checkbox-input"
         checked={checked}
         onChange={() => {

@@ -1,71 +1,63 @@
-/* チェックボックス全体のレイアウト */
 .checkbox-container {
   display: flex;
-  align-items: center; /* items-center */
-  gap: 0.5rem; /* gap-2 */
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* チェックボックスのスタイル */
 .checkbox-input {
   appearance: none;
-  width: 1rem; 
-  height: 1rem; 
-  background-color: white; 
-  border-color: #d1d5db; 
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-color: #d1d5db;
   border: 1px solid grey;
-  border-radius: 0.25rem; 
+  border-radius: 0.25rem;
   transition: background-color 0.2s ease, border-color 0.2s ease;
-  position: relative; /* チェックマークの中央配置用 */
+  position: relative;
 }
 
-/* チェック状態でのスタイル */
 .checkbox-input:checked {
   color: white;
   background: linear-gradient(to right, #89EAD8, #3A85DC);
   border: none;
 }
 
-/* チェック状態のカスタムチェックマーク */
 .checkbox-input:checked::after {
   content: '';
-  position: absolute; /* 中央配置を可能にする */
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 中央に移動 */
+  transform: translate(-50%, -50%);
   display: block;
-  width: 0.6rem; /* チェックマークを大きく */
-  height: 0.6rem; /* チェックマークを大きく */
-  background-color: white; /* チェックマークの色 */
-  /* clip-pathでチェックマークを表現 */
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: white;
   clip-path: polygon(15% 45%, 0% 65%, 50% 100%, 100% 0%, 85% 0%, 45% 75%);
 }
 
-/* focus状態でのスタイル */
 .checkbox-input:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5); /* focus:ring-blue-500 */
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5);
 }
 
-/* disabled状態でのスタイル */
 .checkbox-input:disabled {
   cursor: not-allowed;
-  background-color: #e5e7eb; /* bg-gray-200 */
-  border-color: #d1d5db; /* border-gray-300 */
+  background-color: #e5e7eb;
+  border-color: #d1d5db;
 }
 
 .checkbox-input:disabled:checked {
-  color: #9ca3af; /* text-gray-400 */
+  color: #9ca3af;
 }
 
-/* ラベルのスタイル */
 .checkbox-label {
-  font-size: 0.875rem; /* text-sm */
-  color: #374151; /* text-gray-700 */
-  user-select: none; /* select-none */
+  font-size: 0.875rem;
+  color: #374151;
+  user-select: none;
   cursor: pointer;
 }
 
 .checkbox-label:disabled {
   cursor: not-allowed;
-  color: #9ca3af; /* text-gray-400 */
+  color: #9ca3af;
 }

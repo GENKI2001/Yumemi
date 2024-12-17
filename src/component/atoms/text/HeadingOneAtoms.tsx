@@ -1,4 +1,3 @@
-// Atoms/Heading.tsx
 import React from 'react';
 import './Text.Atoms.css';
 

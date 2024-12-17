@@ -1,4 +1,3 @@
-// atoms/__tests__/Checkbox.test.tsx
 import { fireEvent, render, screen } from '@testing-library/react';
 import Checkbox from './../CheckboxAtoms';
 
