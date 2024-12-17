@@ -1,4 +1,3 @@
-/* 画像の基本スタイル */
 .img{
-  max-height: 45px;           /* ロゴとしての最大値を設定 */
+  max-height: 45px;
 }
