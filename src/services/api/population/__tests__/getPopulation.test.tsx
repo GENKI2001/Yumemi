@@ -7,9 +7,7 @@ import { setupServer } from 'msw/node';
 import { PopulationType } from '../../../../interface/population';
 import { getPopulation } from '../getPopulation';
 
-// 環境変数を使用した URL
 const apiUrl = process.env.REACT_APP_API_URL || '';
-const apiKey = process.env.REACT_APP_X_API_KEY || '';
 
 const server = setupServer(
   http.get<PathParams, DefaultBodyType>(
@@ -19,7 +17,6 @@ const server = setupServer(
       const url = new URL(request.url);
       const prefCode = url.searchParams.get('prefCode');
 
-      // APIキーチェックと応答の実装
       if (requestApiKey !== process.env.REACT_APP_X_API_KEY) {
         return HttpResponse.json(
           { message: 'Invalid API Key' },
@@ -34,7 +31,6 @@ const server = setupServer(
         );
       }
 
-      // 成功時のレスポンス
       return HttpResponse.json(
         {
           message: null,
@@ -58,19 +54,17 @@ const server = setupServer(
   ),
 );
 
-// MSW ライフサイクルフック
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe('getPopulation', () => {
   it('fetches population data successfully for a valid prefCode', async () => {
-    const prefCode = 1; // 有効な都道府県コード
+    const prefCode = 1;
     const prefName = 'Hokkaido';
 
     const population = await getPopulation(prefCode, prefName);
 
-    // 正しいデータが返却されるかを検証
     expect(population).toEqual<PopulationType>({
       boundaryYear: 2020,
       data: [
@@ -89,7 +83,6 @@ describe('getPopulation', () => {
   });
 
   it('returns a 403 error for an invalid API key', async () => {
-    // 無効な API キーをモック
     server.use(
       http.get(`${apiUrl}/api/v1/population/composition/perYear`, () =>
         HttpResponse.json({ message: 'Invalid API Key' }, { status: 403 }),
@@ -99,14 +92,12 @@ describe('getPopulation', () => {
     const prefCode = 1;
     const prefName = 'Hokkaido';
 
-    // エラーがスローされるかを検証
     await expect(getPopulation(prefCode, prefName)).rejects.toThrow(
       'Request failed with status code 403',
     );
   });
 
   it('returns a 400 error for an invalid prefCode', async () => {
-    // 無効な都道府県コードをモック
     server.use(
       http.get(`${apiUrl}/api/v1/population/composition/perYear`, () =>
         HttpResponse.json(
@@ -116,10 +107,9 @@ describe('getPopulation', () => {
       ),
     );
 
-    const prefCode = 0; // 無効な都道府県コード
+    const prefCode = 0;
     const prefName = 'Unknown';
 
-    // エラーがスローされるかを検証
     await expect(getPopulation(prefCode, prefName)).rejects.toThrow(
       'Request failed with status code 400',
     );
