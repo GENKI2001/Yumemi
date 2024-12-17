@@ -9,7 +9,7 @@ import HomeTemplate from '../templates/HomeTemplate';
 const HomePage: React.FC = () => {
   // チェックボックスに選択されている都道府県を設定
   const { prefectures: selectedPrefectures, handleSelectedPrefectures } =
-    useSelectedPrefectures();
+    useSelectedPrefectures([{ prefCode: 13, prefName: '東京都' }]);
   // モードを選択
   const { mode, handleChangeMode } = useMode();
 

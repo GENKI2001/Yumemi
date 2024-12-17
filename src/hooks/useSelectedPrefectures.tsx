@@ -7,8 +7,10 @@ interface UseSelectedPrefecturesReturn {
   handleSelectedPrefectures: (prefecture: PrefectureType) => void;
 }
 
-const useSelectedPrefectures = (): UseSelectedPrefecturesReturn => {
-  const [prefectures, setPrefectures] = useState<PrefectureType[]>([]); // 初期値は6カラム
+const useSelectedPrefectures = (
+  init?: PrefectureType[],
+): UseSelectedPrefecturesReturn => {
+  const [prefectures, setPrefectures] = useState<PrefectureType[]>(init ?? []); // 初期値は6カラム
 
   const handleSelectedPrefectures = (prefecture: PrefectureType) => {
     if (

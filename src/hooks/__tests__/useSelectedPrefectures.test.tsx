@@ -15,6 +15,14 @@ describe('useSelectedPrefectures', () => {
     prefName: '青森県',
   };
 
+  it('should return an sepecified array initially.', () => {
+    const { result } = renderHook(() =>
+      useSelectedPrefectures([mockPrefecture1]),
+    );
+
+    expect(result.current.prefectures).toEqual([mockPrefecture1]);
+  });
+
   it('should return an empty array initially.', () => {
     const { result } = renderHook(() => useSelectedPrefectures());
 
