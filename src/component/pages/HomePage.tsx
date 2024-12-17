@@ -1,4 +1,3 @@
-// ホームのpagesを作成
 import React from 'react';
 import { useGetPopulation } from '../../hooks/useGetPopulation';
 import { useGetPrefectures } from '../../hooks/useGetPrefectures';
