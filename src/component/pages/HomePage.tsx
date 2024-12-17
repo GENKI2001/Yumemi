@@ -14,6 +14,7 @@ const HomePage: React.FC = () => {
 
   return (
     <HomeTemplate
+      headerLogoImagePath={'yumemi.png'}
       prefectures={prefectures ?? []}
       population={population ?? []}
       selectedPrefectures={selectedPrefectures}

@@ -14,6 +14,7 @@ import './HomeTemplate.css';
 interface HomeTemplateProps {
   selectedPrefectures: PrefectureType[];
   prefectures: PrefectureType[];
+  headerLogoImagePath: string;
   population: PopulationType[];
   handleSelectedPrefectures: (prefecture: PrefectureType) => void;
   mode: PopulationLabel;
@@ -25,7 +26,8 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
 
   return (
     <div className="home-template">
-      <AppHeader img_src={'yumemi.png'} />
+      {/* ヘッダー部分 */}
+      <AppHeader img_src={props.headerLogoImagePath} />
 
       <div className="home-template-content">
         <PrefecturePopulationSection />
