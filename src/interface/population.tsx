@@ -1,4 +1,3 @@
-// 人口データの型を定義
 export type PopulationData = {
   year: number;
   value: number;
