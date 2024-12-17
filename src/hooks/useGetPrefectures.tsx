@@ -2,7 +2,6 @@ import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { PrefectureType } from '../interface/prefecture';
 import { getPrefectures } from '../services/api/prefecture/getPrefectures';
 
-// React Query用のカスタムフック
 export const useGetPrefectures = (): UseQueryResult<PrefectureType[]> => {
   return useQuery<PrefectureType[]>({
     queryKey: ['prefectures'],

@@ -4,7 +4,6 @@ import { PopulationLabel } from '../../interface/population';
 import useMode from '../useMode';
 
 describe('useMode', () => {
-  // テストデータ
   const mockLabel: PopulationLabel = '年少人口';
 
   it('should return an default value initially.', () => {
