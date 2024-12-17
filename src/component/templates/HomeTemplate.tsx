@@ -1,4 +1,3 @@
-// ホームのtemplatesを作成
 import React from 'react';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
@@ -22,20 +21,15 @@ interface HomeTemplateProps {
 }
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
-  // ウインドウサイズにより自動計算されたカラム数を取得
   const columns = useResponsiveColumns(6);
 
   return (
     <div className="home-template">
-      {/* ヘッダー部分 */}
       <AppHeader img_src={'yumemi.png'} />
 
-      {/* コンテンツ部分 */}
       <div className="home-template-content">
-        {/* 最初のタイトル */}
         <PrefecturePopulationSection />
 
-        {/* グラフチャート */}
         <section className="home-template-chart-section">
           <PopulationChart
             title={'都道府県別の' + props.mode}
@@ -44,13 +38,11 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
           />
         </section>
 
-        {/* 表示モード選択 */}
         <section className="home-template-mode-section">
           <ModeSection />
           <ModeButtons mode={props.mode} onClick={props.handleChangeMode} />
         </section>
 
-        {/* 都道府県チェックボックス */}
         <section className="home-template-prefecture-section">
           <PrefectureSelectSection />
           <PrefecturesCheckboxGrid
