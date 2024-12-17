@@ -18,6 +18,7 @@ const HomePage: React.FC = () => {
   const { data: population } = useGetPopulation(selectedPrefectures);
   return (
     <HomeTemplate
+      headerLogoImagePath={'yumemi.png'}
       prefectures={prefectures ?? []}
       population={population ?? []}
       selectedPrefectures={selectedPrefectures}
