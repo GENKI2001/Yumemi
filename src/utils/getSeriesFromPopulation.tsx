@@ -5,7 +5,6 @@ import {
   PopulationType,
 } from '../interface/population';
 
-// グラフの系列データを取得する関数
 export const getSeriesFromPopulation = (
   populationData: PopulationType[],
   label: PopulationLabel,
@@ -23,5 +22,5 @@ export const getSeriesFromPopulation = (
       }
       return undefined;
     })
-    .filter(Boolean); // undefinedを除外
+    .filter(Boolean);
 };
