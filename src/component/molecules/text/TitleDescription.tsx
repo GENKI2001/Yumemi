@@ -4,9 +4,9 @@ import { Paragraph } from '../../atoms/text/Paragraph';
 import './TitleDescription.css';
 
 type SectionProps = {
-  title: string; // セクションタイトル
-  description: string; // 説明文
-  className?: string; // 任意のクラス名
+  title: string;
+  description: string;
+  className?: string;
 };
 
 export const TitleDescription: React.FC<SectionProps> = ({
