@@ -1,5 +1,5 @@
 import { PopulationLabel, PopulationType } from '../../interface/population';
-import { getCategoriesFromPopulation } from '../getCategoriesFromPopulation copy';
+import { getCategoriesFromPopulation } from '../getCategoriesFromPopulation';
 
 describe('getCategoriesFromPopulation', () => {
   const mockPopulationData: PopulationType[] = [
