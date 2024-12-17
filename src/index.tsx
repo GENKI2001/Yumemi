@@ -10,17 +10,14 @@ import './index.css';
 
 const queryClient = new QueryClient();
 
-// ローカルストレージを使用したPersister
 const localStoragePersister = createSyncStoragePersister({
   storage: window.localStorage,
 });
 
-// Persistの設定
 export const persistOptions = {
   queryClient,
   persister: localStoragePersister,
-  // 必要に応じてキャッシュの有効期限を設定
-  maxAge: 1000 * 60 * 60 * 24, // 24時間
+  maxAge: 1000 * 60 * 60 * 24,
 };
 
 const root = ReactDOM.createRoot(
