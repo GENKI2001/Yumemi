@@ -104,4 +104,24 @@ describe('getPopulation', () => {
       'Request failed with status code 403',
     );
   });
+
+  it('returns a 400 error for an invalid prefCode', async () => {
+    // 無効な都道府県コードをモック
+    server.use(
+      http.get(`${apiUrl}/api/v1/population/composition/perYear`, () =>
+        HttpResponse.json(
+          { message: 'Prefecture code is required' },
+          { status: 400 },
+        ),
+      ),
+    );
+
+    const prefCode = 0; // 無効な都道府県コード
+    const prefName = 'Unknown';
+
+    // エラーがスローされるかを検証
+    await expect(getPopulation(prefCode, prefName)).rejects.toThrow(
+      'Request failed with status code 400',
+    );
+  });
 });
