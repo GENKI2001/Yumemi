@@ -5,7 +5,6 @@ import {
   PopulationType,
 } from '../interface/population';
 
-// カテゴリ（年度）を取得する関数
 export const getCategoriesFromPopulation = (
   populationData: PopulationType[],
   label: PopulationLabel,
