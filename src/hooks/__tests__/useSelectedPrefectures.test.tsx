@@ -4,7 +4,6 @@ import { PrefectureType } from '../../interface/prefecture';
 import useSelectedPrefectures from '../useSelectedPrefectures';
 
 describe('useSelectedPrefectures', () => {
-  // テストデータ
   const mockPrefecture1: PrefectureType = {
     prefCode: 1,
     prefName: '北海道',
@@ -56,13 +55,11 @@ describe('useSelectedPrefectures', () => {
   it('Should delete already selected prefectures', () => {
     const { result } = renderHook(() => useSelectedPrefectures());
 
-    // まず都道府県を追加
     act(() => {
       result.current.handleSelectedPrefectures(mockPrefecture1);
       result.current.handleSelectedPrefectures(mockPrefecture2);
     });
 
-    // 同じ都道府県を再度選択して削除
     act(() => {
       result.current.handleSelectedPrefectures(mockPrefecture1);
     });

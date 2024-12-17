@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { PrefectureType } from '../interface/prefecture';
 
-// フックの戻り値の型を定義
 interface UseSelectedPrefecturesReturn {
   prefectures: PrefectureType[];
   handleSelectedPrefectures: (prefecture: PrefectureType) => void;
@@ -10,7 +9,7 @@ interface UseSelectedPrefecturesReturn {
 const useSelectedPrefectures = (
   init?: PrefectureType[],
 ): UseSelectedPrefecturesReturn => {
-  const [prefectures, setPrefectures] = useState<PrefectureType[]>(init ?? []); // 初期値は6カラム
+  const [prefectures, setPrefectures] = useState<PrefectureType[]>(init ?? []);
 
   const handleSelectedPrefectures = (prefecture: PrefectureType) => {
     if (
@@ -28,7 +27,7 @@ const useSelectedPrefectures = (
     }
   };
 
-  return { prefectures, handleSelectedPrefectures }; // カラム数を返す
+  return { prefectures, handleSelectedPrefectures };
 };
 
 export default useSelectedPrefectures;
