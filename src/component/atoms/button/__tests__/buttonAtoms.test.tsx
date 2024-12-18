@@ -1,4 +1,3 @@
-// ButtonAtoms.test.tsx
 import { fireEvent, render, screen } from '@testing-library/react';
 import ButtonAtoms from '../ButtonAtoms';
 
@@ -37,5 +36,17 @@ describe('ButtonAtoms component', () => {
 
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toHaveClass(className);
+  });
+
+  it('renders with the correct text', () => {
+    const handleClick = jest.fn();
+    const buttonText = 'Click Me';
+
+    render(<ButtonAtoms onClick={handleClick} text={buttonText} />);
+
+    const buttonElement = screen.getByRole('button', { name: buttonText });
+
+    expect(buttonElement).toBeInTheDocument();
+    expect(buttonElement).toHaveTextContent(buttonText);
   });
 });
