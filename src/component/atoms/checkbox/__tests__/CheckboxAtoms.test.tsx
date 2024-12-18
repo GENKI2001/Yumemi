@@ -1,4 +1,3 @@
-// atoms/__tests__/Checkbox.test.tsx
 import { fireEvent, render, screen } from '@testing-library/react';
 import Checkbox from './../CheckboxAtoms';
 
@@ -41,6 +40,15 @@ describe('Checkbox', () => {
 
     const checkbox = screen.getByTestId('checkbox-input');
     fireEvent.click(checkbox);
+
+    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls onChange handler when label clicked', () => {
+    render(<Checkbox {...defaultProps} />);
+
+    const label = screen.getByTestId('checkbox-atoms-label');
+    fireEvent.click(label);
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
   });

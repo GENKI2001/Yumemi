@@ -1,6 +1,6 @@
-// ホームのtemplatesを作成
-import React, { useEffect, useState } from 'react';
-import { PopulationType } from '../../interface/population';
+import React from 'react';
+import useResponsiveColumns from '../../hooks/useResponsiveColumns';
+import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
 import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
@@ -14,70 +14,45 @@ import './HomeTemplate.css';
 interface HomeTemplateProps {
   selectedPrefectures: PrefectureType[];
   prefectures: PrefectureType[];
+  headerLogoImagePath: string;
   population: PopulationType[];
+  handleSelectedPrefectures: (prefecture: PrefectureType) => void;
+  mode: PopulationLabel;
+  handleChangeMode: (mode: PopulationLabel) => void;
 }
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
-  // あとでロジックを切り分けます。今はここに書いています。
-  const [columns, setColumns] = useState<number>(6); // デフォルトで6カラム
-
-  // ウィンドウの幅に応じてカラム数を計算
-  const calculateColumns = (width: number): number => {
-    if (width > 1200) return 7;
-    if (width > 900) return 6;
-    if (width > 600) return 5;
-    if (width > 450) return 4;
-    return 3;
-  };
-
-  useEffect(() => {
-    // 初回のカラム数設定
-    setColumns(calculateColumns(window.innerWidth));
-
-    const handleResize = () => {
-      setColumns(calculateColumns(window.innerWidth));
-    };
-
-    window.addEventListener('resize', handleResize); // リサイズイベントを監視
-    return () => {
-      window.removeEventListener('resize', handleResize); // クリーンアップ
-    };
-  }, []);
+  const columns = useResponsiveColumns(6);
 
   return (
     <div className="home-template">
       {/* ヘッダー部分 */}
-      <AppHeader img_src={'yumemi.png'} />
+      <AppHeader img_src={props.headerLogoImagePath} />
 
-      {/* コンテンツ部分 */}
       <div className="home-template-content">
-        {/* 最初のタイトル */}
         <PrefecturePopulationSection />
 
-        {/* グラフチャート */}
         <section className="home-template-chart-section">
           <PopulationChart
-            title="都道府県別の総人口"
-            label={'年少人口'}
+            title={'都道府県別の' + props.mode}
+            label={props.mode}
             populationData={props.population ?? []}
           />
         </section>
 
-        {/* 表示モード選択 */}
         <section className="home-template-mode-section">
           <ModeSection />
-          <ModeButtons />
+          <ModeButtons mode={props.mode} onClick={props.handleChangeMode} />
         </section>
 
-        {/* 都道府県チェックボックス */}
         <section className="home-template-prefecture-section">
           <PrefectureSelectSection />
           <PrefecturesCheckboxGrid
             columns={columns}
             selectedPrefectures={props.selectedPrefectures}
             prefectures={props.prefectures}
-            onChange={() => {
-              console.log('');
+            onChange={(prefecture: PrefectureType) => {
+              props.handleSelectedPrefectures(prefecture);
             }}
           />
         </section>

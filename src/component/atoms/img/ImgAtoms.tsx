@@ -2,8 +2,8 @@ import React from 'react';
 import './Img.Atoms.css';
 
 interface ImgProps {
-  img_src: string; // 画像のソースを指定するプロパティ
-  alt?: string; // 画像のalt属性を指定するプロパティ
+  img_src: string;
+  alt?: string;
   className?: string;
 }
 

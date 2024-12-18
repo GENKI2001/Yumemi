@@ -1,4 +1,3 @@
-/* AppHeader の基本スタイル */
 .app-header {
   width: 100%;
   background-color: #ffffff;
@@ -9,7 +8,6 @@
   position: sticky;
 }
 
-/* コンテンツ部分のスタイル */
 .app-header-content {
   margin: 0 auto;
   width: 75%;
@@ -18,31 +16,27 @@
   align-items: center;
 }
 
-/* 画面幅が1200px以下の場合、85%に変更 */
 @media (max-width: 1200px) {
   .app-header-content {
     width: 85%;
   }
 }
 
-/* 画面幅が768px以下の場合、92%に変更 */
 @media (max-width: 768px) {
   .app-header-content {
     width: 92%;
   }
 }
 
-/* 画面幅が480px以下の場合、スマホ用の96%に変更 */
 @media (max-width: 480px) {
   .app-header-content {
     width: 96%;
   }
 }
 
-/* ボタンコンテナのスタイル */
 .app-header-buttons {
   display: flex;
-  justify-content: center; /* 水平方向中央揃え */
-  align-items: center; /* 垂直方向中央揃え */
-  gap: 8px; /* ボタン間のスペースを8px */
+  justify-content: center;
+  align-items: center;
+  gap: 8px; 
 }

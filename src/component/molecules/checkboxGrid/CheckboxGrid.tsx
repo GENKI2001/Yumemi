@@ -1,26 +1,28 @@
-// molecules/CheckboxGrid.tsx
 import React from 'react';
 import Checkbox from '../../atoms/checkbox/CheckboxAtoms';
 import './CheckboxGrid.css';
 
 interface CheckboxOption {
-  label: string; // チェックボックスのラベル
-  onChange: () => void; // チェックボックスの変更イベント
-  checked: boolean; // チェック状態
-  disabled?: boolean; // チェックボックスの無効化状態
+  label: string;
+  onChange: () => void;
+  checked: boolean;
+  disabled?: boolean;
 }
 
 interface CheckboxGridProps {
-  options: CheckboxOption[]; // チェックボックスのオプション
-  columns?: number; // カラム数
+  options: CheckboxOption[];
+  columns?: number;
 }
 
 const CheckboxGrid: React.FC<CheckboxGridProps> = ({
   options,
-  columns = 3, // Default to 3 columns
+  columns = 3,
 }) => {
   return (
-    <div className={`grid-container columns-${columns}`}>
+    <div
+      data-testid="checkbox-grid"
+      className={`grid-container columns-${columns}`}
+    >
       {options.map((option, index) => (
         <Checkbox
           key={index}

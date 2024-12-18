@@ -1,5 +1,6 @@
-/* 基本のスタイル */
 .buttons-container {
-  display: flex; /* フレックスボックスを有効化 */
-  gap: 10px; /* ボタン間のスペース */
+  display: flex;
+  gap: 10px; 
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }

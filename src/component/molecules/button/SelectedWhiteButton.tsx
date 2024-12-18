@@ -3,10 +3,10 @@ import ButtonAtoms from '../../atoms/button/ButtonAtoms';
 import './Button.Molecules.css';
 
 interface LogoProps {
-  text: string; // ボタンのテキスト
-  isSelected?: boolean; // 選択状態
-  onClick: () => void; // クリックイベントを受け取るプロパティ
-  disabled?: boolean; // ボタンの無効化状態
+  text: string;
+  isSelected?: boolean;
+  onClick: () => void;
+  disabled?: boolean;
 }
 
 const SelectedWhiteButton: React.FC<LogoProps> = ({

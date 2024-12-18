@@ -14,7 +14,20 @@ describe('CheckboxGrid Component', () => {
     },
   ];
 
-  // チェックボックスの個数が正しいことを確認
+  test('uses the default number of columns if not explicitly specified', () => {
+    render(<CheckboxGrid options={mockOptions} />);
+
+    const grid = screen.getByTestId('checkbox-grid');
+    expect(grid).toHaveClass('columns-3');
+  });
+
+  test('uses the specific number of columns', () => {
+    render(<CheckboxGrid options={mockOptions} columns={4} />);
+
+    const grid = screen.getByTestId('checkbox-grid');
+    expect(grid).toHaveClass('columns-4');
+  });
+
   test('renders the correct number of checkboxes', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
@@ -22,7 +35,6 @@ describe('CheckboxGrid Component', () => {
     expect(checkboxes).toHaveLength(mockOptions.length);
   });
 
-  // チェックボックスの各ラベルが正しく表示されることを確認
   test('renders the labels correctly', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
@@ -31,7 +43,11 @@ describe('CheckboxGrid Component', () => {
     });
   });
 
-  // チェックボックスがクリックされたときに、正しくonChangeが呼び出されることを確認
+  test('renders no checkboxes when options is empty', () => {
+    render(<CheckboxGrid options={[]} />);
+    expect(screen.queryByRole('checkbox')).toBeNull();
+  });
+
   test('calls onChange with the correct arguments when a checkbox is clicked', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
@@ -41,7 +57,6 @@ describe('CheckboxGrid Component', () => {
     expect(mockOnChange).toHaveBeenCalledTimes(1);
   });
 
-  // オプションに基づいてチェックボックスを正しく無効にすることを確認
   test('disables checkboxes correctly based on the options', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
