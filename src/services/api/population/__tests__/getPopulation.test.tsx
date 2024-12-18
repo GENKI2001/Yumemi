@@ -24,6 +24,13 @@ const server = setupServer(
         );
       }
 
+      if (Number(prefCode ?? 0) < 1 || Number(prefCode ?? 0) > 47) {
+        return HttpResponse.json(
+          { message: 'invalid Prefecture code' },
+          { status: 404 },
+        );
+      }
+
       if (!prefCode) {
         return HttpResponse.json(
           { message: 'Prefecture code is required' },
@@ -112,6 +119,26 @@ describe('getPopulation', () => {
 
     await expect(getPopulation(prefCode, prefName)).rejects.toThrow(
       'Request failed with status code 400',
+    );
+  });
+
+  it('returns a 404 error for a non-existent prefCode', async () => {
+    server.use(
+      http.get(`${apiUrl}/api/v1/population/composition/perYear`, () =>
+        HttpResponse.json(
+          { message: 'Requested prefecture not found' },
+          { status: 404 },
+        ),
+      ),
+    );
+
+    const prefName = 'Non-existent Prefecture';
+
+    await expect(getPopulation(48, prefName)).rejects.toThrow(
+      'Request failed with status code 404',
+    );
+    await expect(getPopulation(0, prefName)).rejects.toThrow(
+      'Request failed with status code 404',
     );
   });
 });
