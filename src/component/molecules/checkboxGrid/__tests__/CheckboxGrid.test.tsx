@@ -21,7 +21,7 @@ describe('CheckboxGrid Component', () => {
     expect(grid).toHaveClass('columns-3');
   });
 
-  test('uses the default number of columns if not explicitly specified', () => {
+  test('uses the specific number of columns', () => {
     render(<CheckboxGrid options={mockOptions} columns={4} />);
 
     const grid = screen.getByTestId('checkbox-grid');
