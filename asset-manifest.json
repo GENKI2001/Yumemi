@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Yumemi/static/css/main.bd04401d.css",
-    "main.js": "/Yumemi/static/js/main.0286e461.js",
+    "main.css": "/Yumemi/static/css/main.90704495.css",
+    "main.js": "/Yumemi/static/js/main.fe457efd.js",
     "index.html": "/Yumemi/index.html",
-    "main.bd04401d.css.map": "/Yumemi/static/css/main.bd04401d.css.map",
-    "main.0286e461.js.map": "/Yumemi/static/js/main.0286e461.js.map"
+    "main.90704495.css.map": "/Yumemi/static/css/main.90704495.css.map",
+    "main.fe457efd.js.map": "/Yumemi/static/js/main.fe457efd.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd04401d.css",
-    "static/js/main.0286e461.js"
+    "static/css/main.90704495.css",
+    "static/js/main.fe457efd.js"
   ]
 }
