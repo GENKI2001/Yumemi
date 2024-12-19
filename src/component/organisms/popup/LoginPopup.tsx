@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../app/redux/store';
 import useLoginForm from '../../../hooks/useLoginForm';
 import SelectedWhiteButton from '../../molecules/button/SelectedWhiteButton';
 import TitlePopup from '../../molecules/popup/TitlePopup';
@@ -12,6 +14,11 @@ interface LoginPopupProps {
 }
 
 const LoginPopup: React.FC<LoginPopupProps> = (props) => {
+  // 推奨されないが、今回は登録ユーザー情報を取得するためにreduxを使用している
+  const { email: registeredEmail, password: registeredPassword } = useSelector(
+    (state: RootState) => state.user,
+  );
+
   const {
     email,
     password,
@@ -20,7 +27,7 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
     handleEmailChange,
     handlePasswordChange,
     handleEmailPassLogin,
-  } = useLoginForm(() => {
+  } = useLoginForm(registeredEmail, registeredPassword, () => {
     props.handleLogin();
     props.onClose();
   });
