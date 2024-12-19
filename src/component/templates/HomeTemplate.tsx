@@ -12,6 +12,9 @@ import PrefectureSelectSection from '../organisms/titleSection/PrefectureSelectS
 import './HomeTemplate.css';
 
 interface HomeTemplateProps {
+  isLoggedIn: boolean;
+  handleLogin: () => void;
+  handleLogout: () => void;
   selectedPrefectures: PrefectureType[];
   prefectures: PrefectureType[];
   headerLogoImagePath: string;
