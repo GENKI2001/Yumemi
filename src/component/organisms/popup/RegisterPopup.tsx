@@ -8,6 +8,7 @@ interface LoginPopupProps {
   isOpen: boolean;
   onClose: () => void;
   handleLogin: () => void;
+  handleRegister: (email: string, password: string) => void;
   handleOpenLoginPopup: () => void;
 }
 
@@ -21,6 +22,7 @@ const RegisterPopup: React.FC<LoginPopupProps> = (props) => {
     handlePasswordChange,
     handleEmailPassRegister,
   } = useRegisterForm(() => {
+    props.handleRegister(email, password);
     props.handleLogin();
     props.onClose();
   });

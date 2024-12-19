@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../../app/redux/slice/authSlice';
+import { registerUser } from '../../app/redux/slice/userSlice';
 import { RootState } from '../../app/redux/store';
 import { useGetPopulation } from '../../hooks/useGetPopulation';
 import { useGetPrefectures } from '../../hooks/useGetPrefectures';
@@ -25,11 +26,16 @@ const HomePage: React.FC = () => {
     dispatch(logout());
   };
 
+  const handleRegister = (email: string, password: string) => {
+    dispatch(registerUser({ email: email, password: password }));
+  };
+
   return (
     <HomeTemplate
       isLoggedIn={isLoggedIn}
       handleLogin={handleLogin}
       handleLogout={handleLogout}
+      handleRegister={handleRegister}
       headerLogoImagePath={'yumemi.png'}
       prefectures={prefectures ?? []}
       population={population ?? []}
