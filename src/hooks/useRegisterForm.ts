@@ -17,10 +17,7 @@ const useRegisterForm = (handleLogin: () => void): UseLoginFormReturn => {
   const [passwordError, setPasswordError] = useState<string | null>(null);
 
   const validateEmail = (email: string): string | null => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // シンプルな正規表現
-    if (!email) {
-      return 'メールアドレスを入力してください';
-    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return 'メールアドレスの形式が正しくありません';
     }
@@ -28,9 +25,6 @@ const useRegisterForm = (handleLogin: () => void): UseLoginFormReturn => {
   };
 
   const validatePassword = (password: string): string | null => {
-    if (!password) {
-      return 'パスワードを入力してください';
-    }
     if (password.length < 6) {
       return 'パスワードは6文字以上で入力してください';
     }
@@ -54,7 +48,6 @@ const useRegisterForm = (handleLogin: () => void): UseLoginFormReturn => {
       return;
     } else {
       handleLogin();
-      alert('フロントエンドのみの開発のため、実際にはリクエストを送信しません');
     }
   };
 
