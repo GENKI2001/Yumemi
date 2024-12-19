@@ -1,4 +1,5 @@
 import React from 'react';
+import useAuthPopup from '../../hooks/useAuthPopup';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
@@ -6,12 +7,18 @@ import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
 import PrefecturesCheckboxGrid from '../organisms/checkboxGrid/PrefecturesCheckboxGrid';
 import AppHeader from '../organisms/header/AppHeader';
+import LoginPopup from '../organisms/popup/LoginPopup';
+import RegisterPopup from '../organisms/popup/RegisterPopup';
 import ModeSection from '../organisms/titleSection/ModeSection';
 import PrefecturePopulationSection from '../organisms/titleSection/PrefecturePopulationSection';
 import PrefectureSelectSection from '../organisms/titleSection/PrefectureSelectSection';
 import './HomeTemplate.css';
 
 interface HomeTemplateProps {
+  isLoggedIn: boolean;
+  handleLogin: () => void;
+  handleLogout: () => void;
+  handleRegister: (email: string, password: string) => void;
   selectedPrefectures: PrefectureType[];
   prefectures: PrefectureType[];
   headerLogoImagePath: string;
@@ -23,11 +30,23 @@ interface HomeTemplateProps {
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
   const columns = useResponsiveColumns(6);
+  const {
+    openLoginPopup,
+    openRegisterPopup,
+    handleClosePopup,
+    handleOpenLoginPopup,
+    handleOpenRegisterPopup,
+  } = useAuthPopup();
 
   return (
     <div className="home-template">
-      {/* ヘッダー部分 */}
-      <AppHeader img_src={props.headerLogoImagePath} />
+      <AppHeader
+        img_src={props.headerLogoImagePath}
+        isLoggedIn={props.isLoggedIn}
+        handleLogout={props.handleLogout}
+        handleLogin={handleOpenLoginPopup}
+        handleRegister={handleOpenRegisterPopup}
+      />
 
       <div className="home-template-content">
         <PrefecturePopulationSection />
@@ -57,6 +76,19 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
           />
         </section>
       </div>
+      <LoginPopup
+        isOpen={openLoginPopup}
+        onClose={handleClosePopup}
+        handleLogin={props.handleLogin}
+        handleOpenRegisterPopup={handleOpenRegisterPopup}
+      />
+      <RegisterPopup
+        isOpen={openRegisterPopup}
+        onClose={handleClosePopup}
+        handleLogin={props.handleLogin}
+        handleRegister={props.handleRegister}
+        handleOpenLoginPopup={handleOpenLoginPopup}
+      />
     </div>
   );
 };
