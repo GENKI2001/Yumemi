@@ -60,7 +60,7 @@ describe('useLoginForm', () => {
     expect(result.current.passwordError).toBeNull();
   });
 
-  it('displays an error when the email or password is incorrect', () => {
+  it('displays an error email is incorrect', () => {
     const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
 
     act(() => {
@@ -70,8 +70,20 @@ describe('useLoginForm', () => {
     });
 
     act(() => {
+      result.current.handleEmailPassLogin();
+    });
+
+    expect(mockReduxHandleLogin).not.toHaveBeenCalled();
+    expect(result.current.emailError).not.toBeNull();
+    expect(result.current.passwordError).not.toBeNull();
+  });
+
+  it('displays an error password is incorrect', () => {
+    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+
+    act(() => {
       result.current.handlePasswordChange({
-        target: { value: 'wrongpassword' },
+        target: { value: 'wrong-password' },
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -111,6 +123,16 @@ describe('useLoginForm', () => {
         target: { value: 'example@gmail.com' },
       } as React.ChangeEvent<HTMLInputElement>);
     });
+
+    expect(result.current.emailError).toBeNull();
+    expect(result.current.passwordError).toBeNull();
+
+    act(() => {
+      result.current.handleEmailPassLogin();
+    });
+
+    expect(result.current.emailError).not.toBeNull();
+    expect(result.current.passwordError).not.toBeNull();
 
     act(() => {
       result.current.handlePasswordChange({
