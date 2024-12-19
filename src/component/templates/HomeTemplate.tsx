@@ -2,6 +2,7 @@ import React from 'react';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
+import TextFieldAtoms from '../atoms/textfield/TextField.Atoms';
 import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
 import PrefecturesCheckboxGrid from '../organisms/checkboxGrid/PrefecturesCheckboxGrid';
@@ -63,6 +64,13 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
           />
         </section>
       </div>
+      <TextFieldAtoms
+        label="test"
+        value="test"
+        onChange={(e) => console.log(e)}
+        placeholder="test"
+        type="text"
+      />
     </div>
   );
 };
