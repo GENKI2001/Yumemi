@@ -28,6 +28,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               text="Sign Out"
               onClick={() => {
                 handleLogout();
+                alert('ログアウトしました');
               }}
             />
           ) : (
