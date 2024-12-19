@@ -5,12 +5,16 @@ import './AppHeader.css';
 
 interface AppHeaderProps {
   img_src: string;
+  isLoggedIn: boolean;
   handleLogin: () => void;
+  handleLogout: () => void;
   handleRegister: () => void;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({
   img_src,
+  isLoggedIn,
+  handleLogout,
   handleLogin,
   handleRegister,
 }) => {
@@ -19,18 +23,30 @@ const AppHeader: React.FC<AppHeaderProps> = ({
       <div className="app-header-content">
         <ImgLogo img_src={img_src} alt={'LogoImage'} />
         <div className="app-header-buttons">
-          <RoundWhiteButton
-            text="Sign In"
-            onClick={() => {
-              handleLogin();
-            }}
-          />
-          <RoundWhiteButton
-            text="Sign Up"
-            onClick={() => {
-              handleRegister();
-            }}
-          />
+          {isLoggedIn ? (
+            <RoundWhiteButton
+              text="Sign Out"
+              onClick={() => {
+                handleLogout();
+                alert('ログアウトしました');
+              }}
+            />
+          ) : (
+            <>
+              <RoundWhiteButton
+                text="Sign In"
+                onClick={() => {
+                  handleLogin();
+                }}
+              />
+              <RoundWhiteButton
+                text="Sign Up"
+                onClick={() => {
+                  handleRegister();
+                }}
+              />
+            </>
+          )}
         </div>
       </div>
     </header>
