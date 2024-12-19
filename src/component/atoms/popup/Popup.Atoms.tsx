@@ -12,11 +12,7 @@ const PopupAtoms: React.FC<PopupProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div role="overlay" className="popup-overlay" onClick={onClose}>
-      <div
-        role="dialog"
-        className="popup"
-        onClick={(e) => e.stopPropagation()} // 内部クリックで閉じるイベントを停止
-      >
+      <div role="dialog" className="popup" onClick={(e) => e.stopPropagation()}>
         <button className="popup-close" onClick={onClose}>
           &times;
         </button>

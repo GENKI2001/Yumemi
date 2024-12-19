@@ -1,6 +1,5 @@
-// PopupAtoms.test.tsx
 import { fireEvent, render, screen } from '@testing-library/react';
-import PopupAtoms from '../Popup.Atoms'; // パスはあなたのファイル構造に合わせて変更
+import PopupAtoms from '../Popup.Atoms';
 
 describe('PopupAtoms', () => {
   it('should not render when isOpen is false', () => {
