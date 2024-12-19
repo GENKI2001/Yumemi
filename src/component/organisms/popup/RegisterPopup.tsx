@@ -25,6 +25,7 @@ const RegisterPopup: React.FC<LoginPopupProps> = (props) => {
     props.handleRegister(email, password);
     props.handleLogin();
     props.onClose();
+    alert('ユーザーを登録し、ログインしました');
   });
 
   return (

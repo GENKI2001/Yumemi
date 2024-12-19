@@ -30,6 +30,7 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
   } = useLoginForm(registeredEmail, registeredPassword, () => {
     props.handleLogin();
     props.onClose();
+    alert('ログインしました');
   });
 
   return (
