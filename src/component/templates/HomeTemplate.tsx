@@ -18,6 +18,7 @@ interface HomeTemplateProps {
   isLoggedIn: boolean;
   handleLogin: () => void;
   handleLogout: () => void;
+  handleRegister: (email: string, password: string) => void;
   selectedPrefectures: PrefectureType[];
   prefectures: PrefectureType[];
   headerLogoImagePath: string;
@@ -85,6 +86,7 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         isOpen={openRegisterPopup}
         onClose={handleClosePopup}
         handleLogin={props.handleLogin}
+        handleRegister={props.handleRegister}
         handleOpenLoginPopup={handleOpenLoginPopup}
       />
     </div>
