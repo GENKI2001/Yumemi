@@ -3,13 +3,17 @@ import useLoginForm from '../useLoginForm';
 
 describe('useLoginForm', () => {
   const mockReduxHandleLogin = jest.fn();
+  const registeredEmail = 'test@example.com';
+  const registeredPassword = 'password';
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it('returns the correct initial state', () => {
-    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+    const { result } = renderHook(() =>
+      useLoginForm(registeredEmail, registeredPassword, mockReduxHandleLogin),
+    );
 
     expect(result.current.email).toBe('');
     expect(result.current.password).toBe('');
@@ -18,7 +22,9 @@ describe('useLoginForm', () => {
   });
 
   it('handles email and password change', () => {
-    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+    const { result } = renderHook(() =>
+      useLoginForm(registeredEmail, registeredPassword, mockReduxHandleLogin),
+    );
 
     act(() => {
       result.current.handleEmailChange({
@@ -37,17 +43,19 @@ describe('useLoginForm', () => {
   });
 
   it('successfully logs in with the correct email and password', () => {
-    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+    const { result } = renderHook(() =>
+      useLoginForm(registeredEmail, registeredPassword, mockReduxHandleLogin),
+    );
 
     act(() => {
       result.current.handleEmailChange({
-        target: { value: 'example@gmail.com' },
+        target: { value: registeredEmail },
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
     act(() => {
       result.current.handlePasswordChange({
-        target: { value: 'password' },
+        target: { value: registeredPassword },
       } as React.ChangeEvent<HTMLInputElement>);
     });
 
@@ -61,7 +69,9 @@ describe('useLoginForm', () => {
   });
 
   it('displays an error email is incorrect', () => {
-    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+    const { result } = renderHook(() =>
+      useLoginForm(registeredEmail, registeredPassword, mockReduxHandleLogin),
+    );
 
     act(() => {
       result.current.handleEmailChange({
@@ -79,7 +89,9 @@ describe('useLoginForm', () => {
   });
 
   it('displays an error password is incorrect', () => {
-    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+    const { result } = renderHook(() =>
+      useLoginForm(registeredEmail, registeredPassword, mockReduxHandleLogin),
+    );
 
     act(() => {
       result.current.handlePasswordChange({
@@ -97,7 +109,9 @@ describe('useLoginForm', () => {
   });
 
   it('clears errors when inputs are changed', () => {
-    const { result } = renderHook(() => useLoginForm(mockReduxHandleLogin));
+    const { result } = renderHook(() =>
+      useLoginForm(registeredEmail, registeredPassword, mockReduxHandleLogin),
+    );
 
     act(() => {
       result.current.handleEmailChange({
