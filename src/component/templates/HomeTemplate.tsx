@@ -41,6 +41,8 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
     <div className="home-template">
       <AppHeader
         img_src={props.headerLogoImagePath}
+        isLoggedIn={props.isLoggedIn}
+        handleLogout={props.handleLogout}
         handleLogin={handleOpenLoginPopup}
         handleRegister={handleOpenRegisterPopup}
       />
