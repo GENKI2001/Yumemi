@@ -9,7 +9,7 @@ interface PopupMoleculesProps {
   children: ReactNode;
 }
 
-const PopupMolecules: React.FC<PopupMoleculesProps> = ({
+const TitlePopup: React.FC<PopupMoleculesProps> = ({
   isOpen,
   onClose,
   title,
@@ -25,4 +25,4 @@ const PopupMolecules: React.FC<PopupMoleculesProps> = ({
   );
 };
 
-export default PopupMolecules;
+export default TitlePopup;
