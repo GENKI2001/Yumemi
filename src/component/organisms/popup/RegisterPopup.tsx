@@ -1,4 +1,4 @@
-import useLoginForm from '../../../hooks/useLoginForm';
+import useRegisterForm from '../../../hooks/useRegisterForm';
 import SelectedWhiteButton from '../../molecules/button/SelectedWhiteButton';
 import TitlePopup from '../../molecules/popup/TitlePopup';
 import AuthTextFields from '../../molecules/textfields/AuthTextFields';
@@ -19,8 +19,8 @@ const RegisterPopup: React.FC<LoginPopupProps> = (props) => {
     passwordError,
     handleEmailChange,
     handlePasswordChange,
-    handleEmailPassLogin,
-  } = useLoginForm(() => {
+    handleEmailPassRegister,
+  } = useRegisterForm(() => {
     props.handleLogin();
     props.onClose();
   });
@@ -40,7 +40,7 @@ const RegisterPopup: React.FC<LoginPopupProps> = (props) => {
           <SelectedWhiteButton
             isSelected
             text="Sign Up"
-            onClick={handleEmailPassLogin}
+            onClick={handleEmailPassRegister}
           />
           <SelectedWhiteButton
             text="Sign In"
