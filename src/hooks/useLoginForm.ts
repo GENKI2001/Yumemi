@@ -10,15 +10,15 @@ interface UseLoginFormReturn {
   handleEmailPassLogin: () => void;
 }
 
-const useLoginForm = (handleLogin: () => void): UseLoginFormReturn => {
+const useLoginForm = (
+  registeredEmail: string,
+  registeredPassword: string,
+  handleLogin: () => void,
+): UseLoginFormReturn => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
-
-  // 今回はフロントエンドのみの開発なので、ログイン情報は固定
-  const LOGIN_EMAIL = 'example@gmail.com';
-  const LOGIN_PASSWORD = 'password';
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -33,7 +33,7 @@ const useLoginForm = (handleLogin: () => void): UseLoginFormReturn => {
   };
 
   const handleEmailPassLogin = () => {
-    if (email === LOGIN_EMAIL && password === LOGIN_PASSWORD) {
+    if (email === registeredEmail && password === registeredPassword) {
       handleLogin();
     } else {
       setEmailError('メールアドレスまたはパスワードが違います');
