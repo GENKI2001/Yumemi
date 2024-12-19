@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 import SelectedWhiteButton from '../../molecules/button/SelectedWhiteButton';
 import TitlePopup from '../../molecules/popup/TitlePopup';
 import AuthTextFields from '../../molecules/textfields/AuthTextFields';
+import './LoginPopup.css';
 
 interface LoginPopupProps {
   isOpen: boolean;
@@ -22,16 +23,18 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
       onClose={props.onClose}
       title={'ログイン'}
     >
-      <AuthTextFields
-        email={props.email}
-        password={props.password}
-        onEmailChange={props.onEmailChange}
-        onPasswordChange={props.onPasswordChange}
-        emailError={props.emailError}
-        passwordError={props.passwordError}
-      />
+      <div className="auth-container">
+        <AuthTextFields
+          email={props.email}
+          password={props.password}
+          onEmailChange={props.onEmailChange}
+          onPasswordChange={props.onPasswordChange}
+          emailError={props.emailError}
+          passwordError={props.passwordError}
+        />
 
-      <SelectedWhiteButton text="ログインする" onClick={props.onClose} />
+        <SelectedWhiteButton text="ログインする" onClick={props.onClose} />
+      </div>
     </TitlePopup>
   );
 };
