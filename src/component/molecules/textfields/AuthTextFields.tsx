@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import TextFieldAtoms from '../../atoms/textfield/TextField.Atoms';
+import './AuthTextFields.css';
 
 interface AuthTextFieldsProps {
   email: string;
