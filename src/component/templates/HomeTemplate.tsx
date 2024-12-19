@@ -75,17 +75,8 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
       <LoginPopup
         isOpen={openLoginPopup}
         onClose={handleClosePopup}
-        email=""
-        password=""
-        onEmailChange={() => {
-          console.log('email changed');
-        }}
-        onPasswordChange={() => {
-          console.log('password changed');
-        }}
-        emailError=""
-        passwordError=""
         handleLogin={props.handleLogin}
+        handleOpenRegisterPopup={handleOpenRegisterPopup}
       />
     </div>
   );

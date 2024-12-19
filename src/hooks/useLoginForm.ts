@@ -23,10 +23,12 @@ const useLoginForm = (handleLogin: () => void): UseLoginFormReturn => {
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setEmailError(null);
+    setPasswordError(null);
   };
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+    setEmailError(null);
     setPasswordError(null);
   };
 

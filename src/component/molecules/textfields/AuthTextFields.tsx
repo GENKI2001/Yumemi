@@ -7,8 +7,8 @@ interface AuthTextFieldsProps {
   password: string;
   onEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onPasswordChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  emailError?: string;
-  passwordError?: string;
+  emailError: string | null;
+  passwordError: string | null;
 }
 
 const AuthTextFields: React.FC<AuthTextFieldsProps> = ({
