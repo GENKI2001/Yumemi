@@ -7,7 +7,7 @@ interface TextFieldProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   type?: string;
-  error?: string;
+  error: string | null;
 }
 
 const TextFieldAtoms: React.FC<TextFieldProps> = ({
