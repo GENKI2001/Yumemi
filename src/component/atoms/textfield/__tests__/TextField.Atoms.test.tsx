@@ -9,6 +9,7 @@ describe('TextFieldAtoms', () => {
         value=""
         onChange={() => {}}
         placeholder="Enter your username"
+        error={null}
       />,
     );
     const labelElement = screen.getByText('Username');
@@ -22,6 +23,7 @@ describe('TextFieldAtoms', () => {
         value=""
         onChange={() => {}}
         placeholder="Enter your username"
+        error={null}
       />,
     );
     const inputElement = screen.getByPlaceholderText('Enter your username');
@@ -49,6 +51,7 @@ describe('TextFieldAtoms', () => {
         value=""
         onChange={handleChange}
         placeholder="Enter your username"
+        error={null}
       />,
     );
 
@@ -68,6 +71,7 @@ describe('TextFieldAtoms', () => {
         onChange={() => {}}
         placeholder="Enter your password"
         type="password"
+        error={null}
       />,
     );
     const inputElement = screen.getByPlaceholderText('Enter your password');
