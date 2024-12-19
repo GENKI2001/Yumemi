@@ -29,8 +29,11 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
 
   return (
     <div className="home-template">
-      {/* ヘッダー部分 */}
-      <AppHeader img_src={props.headerLogoImagePath} />
+      <AppHeader
+        img_src={props.headerLogoImagePath}
+        handleLogin={props.handleLogin}
+        handleLogout={props.handleLogout}
+      />
 
       <div className="home-template-content">
         <PrefecturePopulationSection />

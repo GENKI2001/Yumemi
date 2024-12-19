@@ -5,9 +5,15 @@ import './AppHeader.css';
 
 interface AppHeaderProps {
   img_src: string;
+  handleLogin: () => void;
+  handleLogout: () => void;
 }
 
-const AppHeader: React.FC<AppHeaderProps> = ({ img_src }) => {
+const AppHeader: React.FC<AppHeaderProps> = ({
+  img_src,
+  handleLogin,
+  handleLogout,
+}) => {
   return (
     <header className={`app-header`}>
       <div className="app-header-content">
@@ -16,13 +22,13 @@ const AppHeader: React.FC<AppHeaderProps> = ({ img_src }) => {
           <RoundWhiteButton
             text="Sign In"
             onClick={() => {
-              alert('Sign In');
+              handleLogin();
             }}
           />
           <RoundWhiteButton
             text="Sign Up"
             onClick={() => {
-              alert('Sign In');
+              handleLogout();
             }}
           />
         </div>
