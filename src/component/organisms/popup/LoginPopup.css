@@ -7,6 +7,14 @@
   width: 100%;
 }
 
+.auth-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
 .auth-container > * {
   margin-bottom: 16px;
 }

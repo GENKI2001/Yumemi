@@ -18,11 +18,7 @@ interface LoginPopupProps {
 
 const LoginPopup: React.FC<LoginPopupProps> = (props) => {
   return (
-    <TitlePopup
-      isOpen={props.isOpen}
-      onClose={props.onClose}
-      title={'ログイン'}
-    >
+    <TitlePopup isOpen={props.isOpen} onClose={props.onClose} title={'Sign In'}>
       <div className="auth-container">
         <AuthTextFields
           email={props.email}
@@ -32,8 +28,14 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
           emailError={props.emailError}
           passwordError={props.passwordError}
         />
-
-        <SelectedWhiteButton text="ログインする" onClick={props.onClose} />
+        <div className="auth-button-container">
+          <SelectedWhiteButton
+            isSelected
+            text="Sign In"
+            onClick={props.onClose}
+          />
+          <SelectedWhiteButton text="Sign Up" onClick={props.onClose} />
+        </div>
       </div>
     </TitlePopup>
   );

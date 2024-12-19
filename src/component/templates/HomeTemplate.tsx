@@ -6,6 +6,7 @@ import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
 import PrefecturesCheckboxGrid from '../organisms/checkboxGrid/PrefecturesCheckboxGrid';
 import AppHeader from '../organisms/header/AppHeader';
+import LoginPopup from '../organisms/popup/LoginPopup';
 import ModeSection from '../organisms/titleSection/ModeSection';
 import PrefecturePopulationSection from '../organisms/titleSection/PrefecturePopulationSection';
 import PrefectureSelectSection from '../organisms/titleSection/PrefectureSelectSection';
@@ -63,6 +64,21 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
           />
         </section>
       </div>
+      <LoginPopup
+        isOpen={props.isLoggedIn}
+        onClose={props.handleLogin}
+        email=""
+        password=""
+        onEmailChange={() => {
+          console.log('email changed');
+        }}
+        onPasswordChange={() => {
+          console.log('password changed');
+        }}
+        emailError=""
+        passwordError=""
+        handleLogin={props.handleLogin}
+      />
     </div>
   );
 };
