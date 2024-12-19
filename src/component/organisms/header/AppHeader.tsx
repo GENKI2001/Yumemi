@@ -6,13 +6,13 @@ import './AppHeader.css';
 interface AppHeaderProps {
   img_src: string;
   handleLogin: () => void;
-  handleLogout: () => void;
+  handleRegister: () => void;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({
   img_src,
   handleLogin,
-  handleLogout,
+  handleRegister,
 }) => {
   return (
     <header className={`app-header`}>
@@ -28,7 +28,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
           <RoundWhiteButton
             text="Sign Up"
             onClick={() => {
-              handleLogout();
+              handleRegister();
             }}
           />
         </div>

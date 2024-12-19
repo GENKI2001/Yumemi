@@ -1,4 +1,5 @@
 import React from 'react';
+import useAuthPopup from '../../hooks/useAuthPopup';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
@@ -27,13 +28,20 @@ interface HomeTemplateProps {
 
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
   const columns = useResponsiveColumns(6);
+  const {
+    openLoginPopup,
+    openRegisterPopup,
+    handleClosePopup,
+    handleOpenLoginPopup,
+    handleOpenRegisterPopup,
+  } = useAuthPopup();
 
   return (
     <div className="home-template">
       <AppHeader
         img_src={props.headerLogoImagePath}
-        handleLogin={props.handleLogin}
-        handleLogout={props.handleLogout}
+        handleLogin={handleOpenLoginPopup}
+        handleRegister={handleOpenRegisterPopup}
       />
 
       <div className="home-template-content">
@@ -65,8 +73,8 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         </section>
       </div>
       <LoginPopup
-        isOpen={props.isLoggedIn}
-        onClose={props.handleLogin}
+        isOpen={openLoginPopup}
+        onClose={handleClosePopup}
         email=""
         password=""
         onEmailChange={() => {
