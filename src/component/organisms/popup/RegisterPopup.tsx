@@ -26,7 +26,7 @@ const RegisterPopup: React.FC<LoginPopupProps> = (props) => {
   });
 
   return (
-    <TitlePopup isOpen={props.isOpen} onClose={props.onClose} title={'Sign In'}>
+    <TitlePopup isOpen={props.isOpen} onClose={props.onClose} title={'Sign Up'}>
       <div className="auth-container">
         <AuthTextFields
           email={email}

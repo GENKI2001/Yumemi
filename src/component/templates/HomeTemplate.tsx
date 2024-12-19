@@ -8,6 +8,7 @@ import PopulationChart from '../organisms/chart/PopulationChart';
 import PrefecturesCheckboxGrid from '../organisms/checkboxGrid/PrefecturesCheckboxGrid';
 import AppHeader from '../organisms/header/AppHeader';
 import LoginPopup from '../organisms/popup/LoginPopup';
+import RegisterPopup from '../organisms/popup/RegisterPopup';
 import ModeSection from '../organisms/titleSection/ModeSection';
 import PrefecturePopulationSection from '../organisms/titleSection/PrefecturePopulationSection';
 import PrefectureSelectSection from '../organisms/titleSection/PrefectureSelectSection';
@@ -77,6 +78,12 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         onClose={handleClosePopup}
         handleLogin={props.handleLogin}
         handleOpenRegisterPopup={handleOpenRegisterPopup}
+      />
+      <RegisterPopup
+        isOpen={openRegisterPopup}
+        onClose={handleClosePopup}
+        handleLogin={props.handleLogin}
+        handleOpenLoginPopup={handleOpenLoginPopup}
       />
     </div>
   );
