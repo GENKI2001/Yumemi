@@ -20,7 +20,10 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
     handleEmailChange,
     handlePasswordChange,
     handleEmailPassLogin,
-  } = useLoginForm(props.handleLogin);
+  } = useLoginForm(() => {
+    props.handleLogin();
+    props.onClose();
+  });
 
   return (
     <TitlePopup isOpen={props.isOpen} onClose={props.onClose} title={'Sign In'}>
