@@ -4,6 +4,7 @@ import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
 import { downloadPopulationCSV } from '../../utils/downloadPopulationCSV';
+import { handleCSVButtonClick } from '../../utils/handleCSVButtonClick';
 import CSVButton from '../organisms/button/CSVButton';
 import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
@@ -82,14 +83,14 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
         <section className="home-template-csv-section">
           <CSVSection />
           <CSVButton
-            onClick={() => {
-              if (!props.isLoggedIn) {
-                handleOpenLoginPopup();
-                return;
-              } else {
-                downloadPopulationCSV(props.population);
-              }
-            }}
+            onClick={() =>
+              handleCSVButtonClick(
+                props.isLoggedIn,
+                props.population,
+                handleOpenLoginPopup,
+                downloadPopulationCSV,
+              )
+            }
           />
         </section>
       </div>
