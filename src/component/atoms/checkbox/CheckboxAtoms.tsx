@@ -15,10 +15,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
   disabled = false,
 }) => {
   return (
-    <div className="checkbox-container">
+    <div className="checkbox-atoms-container">
       <input
         type="checkbox"
-        data-testid="checkbox-input"
+        data-testid="checkbox-atoms-input"
         checked={checked}
         onChange={() => {
           if (!disabled) {
@@ -26,7 +26,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           }
         }}
         disabled={disabled}
-        className="checkbox-input"
+        className="checkbox-atoms-input"
       />
       <label
         onClick={() => {
@@ -34,7 +34,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
             onChange();
           }
         }}
-        className="checkbox-label"
+        className="checkbox-atoms-label"
         data-testid="checkbox-atoms-label"
       >
         {label}

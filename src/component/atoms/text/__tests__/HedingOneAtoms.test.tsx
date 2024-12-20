@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { HeadingOneAtoms } from '../HeadingOneAtoms';
+
 describe('H1 Component', () => {
   it('renders the correct children', () => {
     render(<HeadingOneAtoms>Hello World</HeadingOneAtoms>);

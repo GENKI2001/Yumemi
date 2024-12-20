@@ -6,5 +6,5 @@ type HeadingProps = {
 };
 
 export const Paragraph: React.FC<HeadingProps> = ({ children, className }) => (
-  <p className={`p ${className}`}>{children}</p>
+  <p className={`p-atoms ${className}`}>{children}</p>
 );

@@ -9,4 +9,4 @@ type HeadingProps = {
 export const HeadingOneAtoms: React.FC<HeadingProps> = ({
   children,
   className,
-}) => <h1 className={`h1 ${className}`}>{children}</h1>;
+}) => <h1 className={`h1-atoms ${className}`}>{children}</h1>;

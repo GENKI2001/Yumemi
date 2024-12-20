@@ -31,7 +31,7 @@ describe('CheckboxGrid Component', () => {
   test('renders the correct number of checkboxes', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
-    const checkboxes = screen.getAllByTestId('checkbox-input');
+    const checkboxes = screen.getAllByTestId('checkbox-atoms-input');
     expect(checkboxes).toHaveLength(mockOptions.length);
   });
 
@@ -51,7 +51,7 @@ describe('CheckboxGrid Component', () => {
   test('calls onChange with the correct arguments when a checkbox is clicked', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
-    const checkbox = screen.getAllByTestId('checkbox-input')[0];
+    const checkbox = screen.getAllByTestId('checkbox-atoms-input')[0];
     fireEvent.click(checkbox);
 
     expect(mockOnChange).toHaveBeenCalledTimes(1);
@@ -60,7 +60,7 @@ describe('CheckboxGrid Component', () => {
   test('disables checkboxes correctly based on the options', () => {
     render(<CheckboxGrid options={mockOptions} columns={2} />);
 
-    const checkboxes = screen.getAllByTestId('checkbox-input');
+    const checkboxes = screen.getAllByTestId('checkbox-atoms-input');
 
     expect(checkboxes[0]).not.toBeDisabled();
     expect(checkboxes[1]).not.toBeDisabled();
