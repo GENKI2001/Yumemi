@@ -13,7 +13,7 @@ interface ModeButtonsProps {
 
 const ModeButtons: React.FC<ModeButtonsProps> = (props) => {
   return (
-    <div className="buttons-container">
+    <div className="mode-buttons-container">
       {populationLabels.map((label: PopulationLabel) => (
         <SelectedWhiteButton
           key={label}

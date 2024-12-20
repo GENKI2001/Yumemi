@@ -28,6 +28,7 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
     handlePasswordChange,
     handleEmailPassLogin,
   } = useLoginForm(registeredEmail, registeredPassword, () => {
+    // ログインフロー: ログイン -> alert
     props.handleLogin();
     props.onClose();
     alert('ログインしました');
@@ -44,7 +45,7 @@ const LoginPopup: React.FC<LoginPopupProps> = (props) => {
           emailError={emailError}
           passwordError={passwordError}
         />
-        <div className="auth-button-container">
+        <div className="auth-buttons-container">
           <SelectedWhiteButton
             isSelected
             text="Sign In"
