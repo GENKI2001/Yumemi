@@ -11,10 +11,13 @@ interface PopulationChartProps {
 }
 
 const PopulationChart: React.FC<PopulationChartProps> = (props) => {
+  // 人口データからカテゴリーを取得
   const categories = getCategoriesFromPopulation(
     props.populationData,
     props.label,
   );
+
+  // 人口データをグラフ用のデータに変換
   const series = getSeriesFromPopulation(props.populationData, props.label);
 
   const options = {

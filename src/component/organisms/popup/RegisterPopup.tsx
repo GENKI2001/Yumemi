@@ -22,6 +22,7 @@ const RegisterPopup: React.FC<LoginPopupProps> = (props) => {
     handlePasswordChange,
     handleEmailPassRegister,
   } = useRegisterForm(() => {
+    // 登録フロー: ユーザー登録 -> ログイン -> alert
     props.handleRegister(email, password);
     props.handleLogin();
     props.onClose();
