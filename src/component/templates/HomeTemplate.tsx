@@ -3,6 +3,7 @@ import useAuthPopup from '../../hooks/useAuthPopup';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
+import { downloadPopulationCSV } from '../../utils/downloadPopulationCSV';
 import CSVButton from '../organisms/button/CSVButton';
 import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
@@ -86,7 +87,7 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
                 handleOpenLoginPopup();
                 return;
               } else {
-                alert('CSVダウンロードしました');
+                downloadPopulationCSV(props.population);
               }
             }}
           />
