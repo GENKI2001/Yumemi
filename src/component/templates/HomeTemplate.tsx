@@ -9,6 +9,7 @@ import PrefecturesCheckboxGrid from '../organisms/checkboxGrid/PrefecturesCheckb
 import AppHeader from '../organisms/header/AppHeader';
 import LoginPopup from '../organisms/popup/LoginPopup';
 import RegisterPopup from '../organisms/popup/RegisterPopup';
+import CSVSection from '../organisms/titleSection/CSVSection';
 import ModeSection from '../organisms/titleSection/ModeSection';
 import PrefecturePopulationSection from '../organisms/titleSection/PrefecturePopulationSection';
 import PrefectureSelectSection from '../organisms/titleSection/PrefectureSelectSection';
@@ -74,6 +75,10 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
               props.handleSelectedPrefectures(prefecture);
             }}
           />
+        </section>
+
+        <section className="home-template-csv-section">
+          <CSVSection />
         </section>
       </div>
       <LoginPopup
