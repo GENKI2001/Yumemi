@@ -3,6 +3,7 @@ import useAuthPopup from '../../hooks/useAuthPopup';
 import useResponsiveColumns from '../../hooks/useResponsiveColumns';
 import { PopulationLabel, PopulationType } from '../../interface/population';
 import { PrefectureType } from '../../interface/prefecture';
+import CSVButton from '../organisms/button/CSVButton';
 import ModeButtons from '../organisms/button/ModeButtons';
 import PopulationChart from '../organisms/chart/PopulationChart';
 import PrefecturesCheckboxGrid from '../organisms/checkboxGrid/PrefecturesCheckboxGrid';
@@ -79,6 +80,16 @@ const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
 
         <section className="home-template-csv-section">
           <CSVSection />
+          <CSVButton
+            onClick={() => {
+              if (!props.isLoggedIn) {
+                handleOpenLoginPopup();
+                return;
+              } else {
+                alert('CSVダウンロードしました');
+              }
+            }}
+          />
         </section>
       </div>
       <LoginPopup
