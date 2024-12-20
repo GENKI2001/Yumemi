@@ -8,7 +8,7 @@ interface ImgProps {
 }
 
 const ImgAtoms: React.FC<ImgProps> = ({ img_src, alt, className }) => {
-  return <img src={img_src} alt={alt} className={`img ${className}`} />;
+  return <img src={img_src} alt={alt} className={`img-atoms ${className}`} />;
 };
 
 export default ImgAtoms;

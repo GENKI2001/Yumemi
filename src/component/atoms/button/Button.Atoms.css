@@ -1,4 +1,4 @@
-.button {
+.button-atoms {
   background-color: white;
   color: grey;
   border: 1px solid lightgrey;
@@ -8,7 +8,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.button:hover {
+.button-atoms:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 

@@ -18,7 +18,7 @@ const ButtonAtoms: React.FC<ImgProps> = ({
     <button
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
-      className={`button ${className}`}
+      className={`button-atoms ${className}`}
     >
       {text}
     </button>

@@ -38,7 +38,7 @@ describe('Checkbox', () => {
   it('calls onChange handler when clicked', () => {
     render(<Checkbox {...defaultProps} />);
 
-    const checkbox = screen.getByTestId('checkbox-input');
+    const checkbox = screen.getByTestId('checkbox-atoms-input');
     fireEvent.click(checkbox);
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
@@ -56,14 +56,14 @@ describe('Checkbox', () => {
   it('is disabled when disabled prop is true', () => {
     render(<Checkbox {...defaultProps} disabled={true} />);
 
-    const checkbox = screen.getByTestId('checkbox-input');
+    const checkbox = screen.getByTestId('checkbox-atoms-input');
     expect(checkbox).toBeDisabled();
   });
 
   it('does not call onChange when disabled', () => {
     render(<Checkbox {...defaultProps} disabled={true} />);
 
-    const checkbox = screen.getByTestId('checkbox-input');
+    const checkbox = screen.getByTestId('checkbox-atoms-input');
     fireEvent.click(checkbox);
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(0);
