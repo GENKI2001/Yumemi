@@ -1,5 +1,6 @@
 import { PopulationType } from '../interface/population';
 
+// 人口情報をCSV形式でダウンロードする
 export const downloadPopulationCSV = (populationData: PopulationType[]) => {
   const headers = ['都道府県', '種類', '年度', '人口'];
 

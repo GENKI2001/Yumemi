@@ -5,6 +5,7 @@ import {
   PopulationType,
 } from '../interface/population';
 
+// 人口情報から指定したラベルのデータを取得する
 export const getSeriesFromPopulation = (
   populationData: PopulationType[],
   label: PopulationLabel,
