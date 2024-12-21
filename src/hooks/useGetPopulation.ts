@@ -17,7 +17,7 @@ export const useGetPopulation = (
       queryKey: ['prefecture', pref.prefCode],
       queryFn: () => getPopulation(pref.prefCode, pref.prefName),
       // キャッシュの設定
-      staleTime: 5 * 60 * 1000, // 5分間はキャッシュを新鮮として扱う
+      staleTime: 30 * 60 * 1000, // 30分間はキャッシュを新鮮として扱う
       cacheTime: 30 * 60 * 1000, // 30分間キャッシュを保持
       initialData: () => {
         return queryClient.getQueryData(['prefecture', pref.prefCode]);
