@@ -6,6 +6,7 @@ interface UseSelectedPrefecturesReturn {
   handleSelectedPrefectures: (prefecture: PrefectureType) => void;
 }
 
+// 選択された都道府県を管理するためのカスタムフック
 const useSelectedPrefectures = (
   init?: PrefectureType[],
 ): UseSelectedPrefecturesReturn => {

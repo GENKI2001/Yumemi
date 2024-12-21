@@ -10,6 +10,7 @@ interface UseLoginFormReturn {
   handleEmailPassLogin: () => void;
 }
 
+// ログインフォームの入力値を制御するためのカスタムフック
 const useLoginForm = (
   registeredEmail: string,
   registeredPassword: string,

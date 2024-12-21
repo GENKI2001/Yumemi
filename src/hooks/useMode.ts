@@ -6,6 +6,7 @@ interface UseModeReturn {
   handleChangeMode: (mode: PopulationLabel) => void;
 }
 
+// 人口の表示モードを管理するためのカスタムフック
 const useMode = (init?: PopulationLabel): UseModeReturn => {
   const [mode, setMode] = useState<PopulationLabel>(init ?? '年少人口');
 

@@ -8,6 +8,7 @@ interface UseAuthPopupReturn {
   handleClosePopup: () => void;
 }
 
+// ログイン・新規登録のポップアップを制御するためのカスタムフック
 const useAuthPopup = (): UseAuthPopupReturn => {
   const [openLoginPopup, setOpenLoginPopup] = useState<boolean>(false);
   const [openRegisterPopup, setOpenRegisterPopup] = useState<boolean>(false);

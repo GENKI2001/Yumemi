@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+// 画面幅に応じて、表示するカラム数を変更するためのカスタムフック
 const useResponsiveColumns = (init?: number): number => {
   const [columns, setColumns] = useState<number>(init ?? 6); // 初期値は6カラム
 

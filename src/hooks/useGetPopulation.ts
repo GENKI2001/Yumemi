@@ -3,6 +3,7 @@ import { PopulationType } from '../interface/population';
 import { PrefectureType } from '../interface/prefecture';
 import { getPopulation } from '../services/api/population/getPopulation';
 
+// 人口情報を取得するためのカスタムフック
 export const useGetPopulation = (
   prefecures: PrefectureType[],
 ): {
