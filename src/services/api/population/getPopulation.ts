@@ -8,6 +8,7 @@ const apiClient = axios.create({
   },
 });
 
+// ゆめみAPIを用いて人口情報を取得する
 export const getPopulation = async (
   prefCode: number,
   prefName: string,

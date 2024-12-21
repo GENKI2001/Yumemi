@@ -8,6 +8,7 @@ const apiClient = axios.create({
   },
 });
 
+// ゆめみAPIを用いて都道府県情報を取得する
 export const getPrefectures = async (): Promise<PrefectureType[]> => {
   const response = await apiClient.get('/api/v1/prefectures', {
     headers: {
