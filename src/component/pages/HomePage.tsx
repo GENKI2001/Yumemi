@@ -11,11 +11,18 @@ import HomeTemplate from '../templates/HomeTemplate';
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
+  // チェックボックスで選択された都道府県の情報を管理するためのカスタムフック
   const { prefectures: selectedPrefectures, handleSelectedPrefectures } =
     useSelectedPrefectures([{ prefCode: 13, prefName: '東京都' }]);
+  // 総人口・年少人口・生産年齢人口・老年人口の情報を取得するためのカスタムフック
   const { mode, handleChangeMode } = useMode();
+
+  // APIから都道府県の情報を取得するためのカスタムフック
   const { data: prefectures } = useGetPrefectures();
+  // APIから人口情報を取得するためのカスタムフックs
   const { data: population } = useGetPopulation(selectedPrefectures);
+
+  // ログイン状態を管理するためのReduxのステートを取得
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 
   const handleLogin = () => {
