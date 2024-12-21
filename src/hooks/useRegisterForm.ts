@@ -10,6 +10,7 @@ interface UseLoginFormReturn {
   handleEmailPassRegister: () => void;
 }
 
+// 新規登録フォームの入力値を制御するためのカスタムフック
 const useRegisterForm = (handleLogin: () => void): UseLoginFormReturn => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
